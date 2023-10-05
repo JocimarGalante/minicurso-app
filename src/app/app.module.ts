@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { AtualizarProdutoComponent } from './componentes/produto/atualizar-produto/atualizar-produto.component';
 import { ExcluirProdutoComponent } from './componentes/produto/excluir-produto/excluir-produto.component';
+import { CardProdutoComponent } from './componentes/padrao/card-produto/card-produto.component';
+
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -44,6 +49,7 @@ import { ExcluirProdutoComponent } from './componentes/produto/excluir-produto/e
     ListarProduto2Component,
     AtualizarProdutoComponent,
     ExcluirProdutoComponent,
+    CardProdutoComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,10 @@ import { ExcluirProdutoComponent } from './componentes/produto/excluir-produto/e
     MatPaginatorModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
