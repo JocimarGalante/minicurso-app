@@ -10,7 +10,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./atualizar-produto.component.scss'],
 })
 export class AtualizarProdutoComponent {
-  produto: Produto;
+  produto: Produto = {
+    nome: '',
+    preco: null as any
+  }
 
   constructor(
     private produtoService: ProdutoService,

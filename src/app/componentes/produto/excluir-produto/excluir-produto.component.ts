@@ -9,7 +9,10 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./excluir-produto.component.scss'],
 })
 export class ExcluirProdutoComponent {
-  produto: Produto;
+  produto: Produto = {
+    nome: '',
+    preco: null as any
+  }
 
   constructor(
     private produtoService: ProdutoService,
